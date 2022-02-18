@@ -1,0 +1,611 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --header-background-color: #f8fafc;
+  --sidebar-background-color: #fde047;
+  --main-content-background-color: #f1f5f9;
+  --main-content-boxes-bg-color: #f8fafc;
+  --buttons-bg-color: #fbbf24;
+  --heading-font: Poppins;
+  --paragraph-font: Arial;
+}
+
+button {
+  --webkit-appearance: none;
+  appearance: none;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* The outer skeleton of the dashboard including grid properties. */
+.dashboard-container {
+  margin: 0 auto;
+  height: 90vh;
+  width: 85vw;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr;
+  grid-template-rows: minmax(150px, 200px);
+}
+
+/* Putting header to its place */
+.header {
+  grid-column: 2/4;
+  grid-row: 1/2;
+  background-color: var(--header-background-color);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* Putting sidebar to its place. */
+.sidebar {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: var(--sidebar-background-color);
+}
+
+/* Putting main container to its place. */
+.main-container {
+  background-color: var(--main-content-background-color);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* header code */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  grid-template-rows: 30% 50%;
+}
+
+/* Making grid of top row header. */
+.top-row-header {
+  grid-area: 1/1/2/6;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: 0.5fr;
+  place-content: center;
+}
+
+/* Top row-header's left side. Making it grid and aligning the content in the center. */
+.left-side {
+  grid-area: 1/1/3/3;
+  display: grid;
+  align-items: start;
+  place-content: center;
+  grid-template-columns: 0.2fr 1fr;
+}
+
+/* Styling the input type search in the left-side. */
+.left-side > input[type="search"] {
+  border: 1px solid wheat;
+  border-radius: 7.5px;
+  background-color: lightgrey;
+}
+
+.left-side > svg {
+  margin: 0 auto;
+}
+
+/* Left side of the top-row header style ends. */
+
+/* Right side of the top-header style starts */
+.right-side-mc {
+  grid-area: 1/5/5/6;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-content: center;
+}
+
+/* Centering the image */
+.right-side > svg {
+  align-self: center;
+  justify-self: center;
+}
+
+/* Image container to make the image small. */
+.image-container {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: lightgoldenrodyellow;
+  margin: 0 auto;
+}
+
+/* Fitting the image inside the container to avoid any stretch */
+.image-container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Making the right side of the top-row header align with each other on a single line. */
+.right-side-wrapper {
+  display: grid;
+  grid-area: 1/1/2/4;
+  grid-template-columns: repeat(3, 1fr);
+  place-content: center;
+  text-align: center;
+}
+
+/* Placing the SVG Notification image and text in the center */
+.right-side-wrapper > svg,
+.right-side-wrapper > p {
+  place-self: center;
+}
+/* Right side of the top-header is completed. */
+
+/* Bottom Row Header Begins */
+
+/* Putting the logo in a bigger container */
+.image-container-2 {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: wheat;
+}
+
+/* Making sure the image fits inside the container. */
+.image-container-2 > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Container of the left-side and right-side of the bottom-row header */
+.bottom-row-header {
+  grid-area: 2/1/3/6;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Configuring the right side of the bottom-row header. */
+.bottom-right-side {
+  display: grid;
+  place-content: center;
+  grid-auto-flow: column;
+  gap: 15px;
+}
+
+/* Styling buttons */
+.bottom-right-side button {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 12.5px;
+  height: 30px;
+  width: 5rem;
+  background-color: var(--buttons-bg-color);
+}
+
+/* Configuring the left side of the bottom-row header */
+.bottom-left-side {
+  place-content: center;
+  grid-template-columns: 0.25fr 1fr;
+  display: grid;
+}
+
+/* Centering the logo inside the container of image. */
+.image-container-2 {
+  justify-self: center;
+  align-self: center;
+}
+
+/* Targeting the first paragraph to make it smaller inside the paragraph wrapper */
+.paragraph-wrapper {
+  display: grid;
+  align-content: center;
+}
+
+.paragraph-wrapper > p {
+  font-size: 1.25rem;
+}
+
+.paragraph-wrapper > p:nth-of-type(1) {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* Entire Header is now completed */
+
+/* Sidebar begins */
+
+/* Making the sidebar into multiple rows to accomodate three different divs */
+.sidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.25fr 1fr 1fr;
+}
+
+/* Targeting the first Sidebar section at the top */
+.first-sidebar-section {
+  grid-area: 1/1/2/2;
+  display: grid;
+  place-content: center;
+  grid-auto-flow: column;
+  gap: 5px;
+}
+
+.first-sidebar-section > p {
+  place-self: center;
+}
+
+/* Flexbox items aligning in the sidebar  */
+.flexbox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+
+.sixth-item {
+  margin-bottom: 25px;
+}
+
+.first-item,
+.second-item,
+.third-item,
+.fourth-item,
+.fifth-item,
+.sixth-item {
+  display: flex;
+  gap: 25px;
+}
+
+/* Last sidebar section commences */
+.last-sidebar-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  height: 40vh;
+}
+
+.last-sidebar-first-item,
+.last-sidebar-second-item,
+.last-sidebar-third-item {
+  display: flex;
+  gap: 25px;
+}
+
+/* Last section also done */
+
+/* Main Section starts */
+
+/* Setting up grid columns and rows for the main container */
+.main-container {
+  gap: 10px;
+  display: grid;
+  grid-area: 2/2/3/4;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(auto-fit, minmax(0.2fr, 1fr));
+}
+
+/* Aligning the paragraph on the top of main container */
+.main-container > p {
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Aligning the divs inside the main container */
+.mc-item-1 {
+  margin-left: 1rem;
+  border-radius: 10px;
+  text-align: left;
+  padding: 15px;
+  display: grid;
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 2;
+}
+
+.mc-item-1 h3 {
+  margin-bottom: 1.9rem;
+}
+
+.mc-icons {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  align-self: end;
+}
+
+.mc-item-2 {
+  display: grid;
+  grid-row: 2/3;
+  grid-column: 3 / span 2;
+  border-radius: 10px;
+  text-align: left;
+  padding: 15px;
+  background-color: lightskyblue;
+}
+
+.mc-item-3 {
+  margin-left: 1rem;
+  display: grid;
+  grid-row: 3;
+  grid-column: 1 / span 2;
+  border-radius: 10px;
+  text-align: left;
+  padding: 15px;
+  background-color: lightskyblue;
+}
+
+.mc-item-4 {
+  display: grid;
+  grid-row: 3;
+  grid-column: 3 / span 2;
+  border-radius: 10px;
+  text-align: left;
+  padding: 15px;
+  background-color: lightskyblue;
+}
+
+.mc-item-5 {
+  margin-left: 1rem;
+  display: grid;
+  grid-row: 4;
+  grid-column: 1 / span 2;
+  border-radius: 10px;
+  text-align: left;
+  padding: 15px;
+  background-color: lightskyblue;
+}
+
+.mc-item-6 {
+  display: grid;
+  grid-row: 4;
+  grid-column: 3 / span 2;
+  border-radius: 10px;
+  text-align: left;
+  padding: 15px;
+  background-color: lightskyblue;
+}
+
+/* Taking over the right side of the main container */
+.main-container-right-side {
+  gap: 5px;
+  display: grid;
+  grid-area: 1/5/5/7;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.8fr 1fr 1fr 1fr 0.3fr 1fr 1fr;
+}
+
+.main-container-right-side > p {
+  place-self: end start;
+}
+
+/* Making the container for the elements in the top side of right-side main contaienr */
+.top-right-side-mc {
+  border-radius: 10px;
+  background-color: lightgray;
+  display: grid;
+  grid-area: 2/1/5/2;
+  grid-template-columns: 1fr;
+  padding: 10px;
+  grid-template-rows: 0.5fr 0.65fr 1fr 1fr;
+  margin-right: 1rem;
+}
+
+/* Targeting the word Announcement */
+.top-right-side-mc > p {
+  place-self: end center;
+}
+
+.top-right-side-mc > h3:nth-child(1) {
+  place-self: end center;
+}
+
+/* Targeting the first item in the top-right container inside main container */
+.right-side-item-1 {
+  padding: 10px;
+  display: grid;
+  grid-area: 1/1/3/2;
+  /* grid-template-rows: 0.3fr; */
+}
+
+/* Targeting the second item. */
+.right-side-item-2 {
+  padding: 10px;
+  display: grid;
+  grid-area: 3/1/4/2;
+}
+
+/* Targeting the third item */
+.right-side-item-3 {
+  padding: 10px;
+  display: grid;
+  grid-area: 4/1/5/2;
+}
+
+/* Targeting the bottom right box inside the main container */
+.bottom-right-mc {
+  border-radius: 10px;
+  grid-area: 5/1/8/2;
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 1fr 1fr 1fr 1fr;
+  margin-right: 1rem;
+  background-color: lightgrey;
+}
+
+.bottom-right-mc > p {
+  place-self: end center;
+}
+
+/* Targeting bottom right containers first item */
+.bottom-right-item-1 {
+  padding: 10px;
+  display: grid;
+  grid-area: 2/1/3/2;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+/* Making a container for the image to reside in */
+.image-container-3 {
+  display: grid;
+  place-self: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: lightcoral;
+}
+
+/* Adjusting the image inside the container */
+.image-container-3 > img {
+  width: 100%;
+  height: auto;
+}
+
+/* Aligning the text at the right place */
+.paragraph-contain-1 {
+  display: grid;
+  align-content: center;
+  text-align: left;
+}
+
+/* Targeting the container of the second item */
+.bottom-right-item-2 {
+  padding: 10px;
+  display: grid;
+  grid-area: 3/1/4/2;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+/* Makign a container for the image to reside in */
+.image-container-4 {
+  display: grid;
+  place-self: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: lightskyblue;
+}
+
+/* Adjusting the image inside the container */
+.image-container-4 > img {
+  width: 100%;
+  height: auto;
+}
+
+/* Making the container for the third item  */
+.bottom-right-item-3 {
+  padding: 10px;
+  display: grid;
+  grid-area: 4/1/5/2;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+/* Makign a container for the image to reside in */
+.image-container-5 {
+  display: grid;
+  place-self: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: lightsalmon;
+}
+
+/* Adjusting the image inside the container */
+.image-container-5 > img {
+  width: 100%;
+  height: auto;
+}
+
+/* Making the container for the fourth item  */
+.bottom-right-item-4 {
+  padding: 10px;
+  display: grid;
+  grid-area: 5/1/6/2;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+/* Making the container for the image to reside in */
+.image-container-6 {
+  display: grid;
+  place-self: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: lightgreen;
+}
+
+.image-container-6 > img {
+  width: 100%;
+  height: auto;
+}
+
+/* Custom Styling from here */
+.mc-item-1,
+.mc-item-2,
+.mc-item-3,
+.mc-item-4,
+.mc-item-5,
+.mc-item-6,
+.top-right-side-mc,
+.bottom-right-mc {
+  /* box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: var(--main-content-boxes-bg-color);
+}
+
+.mc-item-1,
+.mc-item-2,
+.mc-item-3,
+.mc-item-4,
+.mc-item-5,
+.mc-item-6 {
+  font-size: 13px;
+  border-left: 7px solid goldenrod;
+  font-family: var(--paragraph-font);
+}
+
+button,
+.sidebar,
+h4,
+h3,
+h2,
+h1 {
+  font-family: var(--heading-font);
+}
+
+.main-container > p,
+.main-container-right-side > p,
+.bottom-right-mc > p,
+.right-side-item-1 > p:nth-child(1),
+.right-side-item-3 > p:nth-child(1),
+.right-side-item-2 > p:nth-child(1),
+.paragraph-wrapper > p:nth-child(1) {
+  font-family: var(--heading-font);
+}
+.paragraph-wrapper > p:nth-child(2) {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.sidebar p,
+.top-right-side-mc p:nth-child(odd),
+.bottom-right-mc p:nth-child(odd) {
+  font-weight: 700;
+  font-family: var(--heading-font);
+}
+
+.top-right-side-mc p:nth-child(even),
+.bottom-right-mc p:nth-child(even) {
+  font-size: 0.8rem;
+  font-family: var(--paragraph-font);
+}
+
+.main-container > p,
+.main-container-right-side > p {
+  font-weight: bold;
+}
