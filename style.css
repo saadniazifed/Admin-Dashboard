@@ -610,3 +610,12 @@ h1 {
 .main-container-right-side > p {
   font-weight: bold;
 }
+
+/* Adding hover styles on the button */
+button:hover {
+  cursor: pointer;
+  margin-top: 5px;
+  background-color: black;
+  color: goldenrod;
+  font-weight: 700;
+}
