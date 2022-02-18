@@ -15,7 +15,7 @@
 }
 
 button {
-  --webkit-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
 }
 
